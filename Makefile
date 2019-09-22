@@ -1,4 +1,4 @@
-default: prog
+default: test
 
 get-deps:
 	# Assuming Debian or Ubuntu here
@@ -18,7 +18,7 @@ main.o: main.c
 
 test: dictionary.o spell.o test_main.o
 	#gcc -Wall -o test_main test_main.o spell.o dictionary.o -lcheck -lm -lrt -lpthread -lsubunit
-	gcc -o main dictionary.c dictionary.h spell.c test_main.c -Wall -lcheck -lm -lrt -lpthread -lsubunit
+	gcc -o test_main dictionary.c dictionary.h spell.c test_main.c -Wall -lcheck -lm -lrt -lpthread -lsubunit
 	./test_main 
 
 prog: dictionary.o spell.o main.o
