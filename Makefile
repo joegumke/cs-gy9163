@@ -1,4 +1,4 @@
-default: test
+default: prog
 
 get-deps:
 	# Assuming Debian or Ubuntu here
@@ -27,7 +27,7 @@ prog: dictionary.o spell.o main.o
 	./main test1.txt wordlist.txt
 
 clean:
-	rm dictionary.o spell.o main.o test_main.o check_spell.o
+	rm dictionary.o spell.o main.o test_main main dictionary.h.gch
 
 cleanall:clean
 	rm spell_check
