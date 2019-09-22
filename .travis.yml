@@ -6,7 +6,6 @@ before_install:
 compiler: 
     - gcc
 script: 
-    gcc -o -g test_main dictionary.c dictionary.h spell.c test_main.c -Wall -lcheck -lm -lrt -lpthread -lsubunit
     - make
     - ./test_main 
    
