@@ -18,6 +18,7 @@
 // ulimit -c unlimited
 // gdb progrname core
 
+
 // 3 functions
 //extern int hash_function(const char* word);
 
@@ -29,18 +30,9 @@ bool check_word(const char* word, hashmap_t hashtable[])
     if(word == NULL || hashtable == NULL){return false;}
     else{
     // To search the hashmap, you will want to:
-
-    //printf("%s\n",word);
-       
-    //wordBuffer
-    char wordBuffer[LENGTH+1];
-
-    //lowercase the word:
-    for(int b=0;b<=strlen(word);b++){wordBuffer[b] = tolower(word[b]);}
-    //printf("WORDBUFFER: [%s]\n",wordBuffer);
-
     //  1) Calculate the hash
-    int bucket = hash_function(wordBuffer);
+    //printf("%s\n",word);
+    int bucket = hash_function(word);
 
     //  2) look at the node * at hashtable[tempHash], let's call it curr.
     node * curr =hashtable[bucket];
@@ -48,7 +40,7 @@ bool check_word(const char* word, hashmap_t hashtable[])
     while(curr){   
         // 1) if curr->word is equal to word, return true
         //printf("[%s][%s]", word,  curr->word);
-        if(strcmp(curr->word,wordBuffer)==0){return 1;}
+        if(strcmp(curr->word,word)==0){return 1;}
 
         // 2) curr = curr->next
         else (curr = curr->next);
@@ -82,7 +74,7 @@ bool load_dictionary(const char* dictionary_file, hashmap_t hashtable[])
         if(line[strlen(line)-1] =='\n'){line[strlen(line)-1]='\0';}
         
         //convert dictionary to lower
-        for(int a=0;a<=strlen(line);a++){line[a]= tolower(line[a]);}
+        for(int a=0;a<strlen(line);a++){line[a]= tolower(line[a]);}
         
         hashvalue = hash_function(line);
         //  1) get an index by calling hash_function(word), as you did above.
@@ -118,21 +110,21 @@ bool load_dictionary(const char* dictionary_file, hashmap_t hashtable[])
 // parameter to check_words will be a file pointer containing lines of words seperated by spaces,punctuation, etc
 // word defined as seperated by spaces && if punctuation in a word, then mispelled
 int check_words(FILE* fp, hashmap_t hashtable[], char* misspelled[]){ 
-    //misspelled[1000];
-
     //Check and close if File not correct
     if(!fp){return 1;}
     // set int num_misspelled to 0.
     int num_misspelled = 0 ;
 
     //initialize wordBuffer to read file into
-    char wordBuffer[500000];
+    char wordBuffer[5000];
 
     // variable to instantiate placeholder for individual word
     char* token = strtok(wordBuffer," ");
 
     //For loop for reading file
-    while(fgets(wordBuffer,500000,fp)){
+    while(fgets(wordBuffer,5000,fp)){
+        //convert word to lower
+        for(int b=0;b<strlen(wordBuffer);b++){wordBuffer[b] = tolower(wordBuffer[b]);}
 
         //printf("Sentence: %s\n",wordBuffer);
         //printf("TOKENBEFORE: %s\n",token);
@@ -140,28 +132,25 @@ int check_words(FILE* fp, hashmap_t hashtable[], char* misspelled[]){
 
         while(token != NULL){
             if(token[strlen(token)-1] =='\n'){token[strlen(token)-1]='\0';}
-            token[strlen(token)]='\0';           
-            //printf("TOKEN:  %s \n",token);
+            token[strlen(token)]='\0';
+            
+            //printf("Inside TOKEN %s \n",token);
             
             //Punctuation strip RIGHT of word          
             bool afterPUNC = ispunct(token[strlen(token)-1]);
-            if(afterPUNC){while(afterPUNC){
+            while(afterPUNC){
                 token[strlen(token)-1]='\0';
-                afterPUNC = ispunct(token[strlen(token)-1]);
-                    }
-                }
-            
+                afterPUNC = ispunct(token[strlen(token)-1]);}
 
             // Punctuation strip LEFT of word
-            bool beforePUNC = ispunct(token[0]);
-            if(beforePUNC){while(beforePUNC){
-                    token++;
-                    beforePUNC = ispunct(token[0]);
-                    }
-                }
-            
+            //char* beforePunc[strlen(token)];
+            //for(int c=0;c<strlen(token);c++){
+            //    if(isalpha(token[c])){
+            //        strncpy()
+            //    }
+            //}
 
-            //printf("TOKENPROCESSED: %s\n",token);
+            printf("TOKENPROCESSED: %s\n",token);
 
             // Check if the word exists in the dictionary
             bool wordCheckResult = check_word(token,hashtable);

@@ -1,0 +1,63 @@
+valgrind --tool=memcheck --leak-check=yes ./example1
+valgrind --tool=memcheck --leak-check=yes --show-leak-kinds=all ./spell.c
+
+gcc spell.c dictionary.c dictionary.h
+
+afl-cmin --> narrow down test cases to what afl deems sufficient/necessary
+minimzed set of tests -- input $TEST_FILE_LOCATION
+afl-cmin -i test_files/ -i test -- ./main @@ wordlist_files/wordlist.txt 
+
+identify the issues 
+hypothetical fix the issues 
+
+https://github.com/mirrorer/afl
+http://lcamtuf.coredump.cx/afl/status_screen.txt
+https://github.com/Battelle/afl-unicorn
+
+int main(int argc, char *argv[]) and then argv[1] + argv[2] to pass to functions.
+   
+load dictionary
+pass file pointer for file wanted testing to check words
+print everything in mispelled array
+
+check_wrod - check lower and regular case
+
+check_words -- strip punctuation
+
+Run AFL -
+	look at crashes and Document hypothetical crashes for fixes
+	run valgrind
+	run testing modules 
+	run travis up and running with tests 
+	
+CC = gcc
+all: test
+get-deps:
+        sudo apt-get install -y build-essential check
+
+dictionary.o: dictionary.c
+        gcc -g -Wall -c dictionary.c
+spell.o: spell.c
+        gcc -g -Wall -c spell.c
+test.o: test_main.c
+        gcc -g -Wall -c test_main.c
+test: dictionary.o spell.o test_main.o
+        gcc -g -Wall -o test_main.o spell.o dictionary.o -lcheck
+#       gcc -g -Wall -o test_main.o spell.o dictionary.o -lcheck -lm -lrt -lsubunit
+#       gcc -g -Wall -o test_main.o spell.o dictionary.o -lcheck -lm -lrt -lpthreat -lsubunit
+
+test cases
+	test_main.c provided
+	expand on that tesT_main.c with additional tests. 
+	ake test cases, use the testing framework. require that main function is setup in a certain way
+	covered most of the lines in program - do it until you feel that you have covered interesting edge cases. 
+		not trivial to stop testing. always interesting edge cases that can cause errors in the program/code.
+		
+	main function for valgrind will be same main function used for afl
+	just a main function that ties the program together.
+	
+	tesT_main being written - using check framework or whatever is used for testing against the unit testing framework.
+	
+	to see how this works, check out the test_main.c 
+	
+	
