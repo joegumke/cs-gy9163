@@ -4,6 +4,7 @@
 
 #define DICTIONARY "wordlist.txt"
 #define TESTDICT "test_worlist.txt"
+#define LARGEWORDLIST "largewordlist.txt"
 #define null_dictionary ""
 
 // *** ADDED TESTS ***
@@ -12,6 +13,8 @@
 // Punctuation before word
 // large input
 // numbers
+// Very large dictionary
+// Very Large word check
 
 // *** TESTS TO ADD YET *** 
 
@@ -55,6 +58,14 @@ START_TEST(test_null_dictionary)
     // test/validate null dictionary loading and quit
     hashmap_t hashtable[HASH_SIZE];
     ck_assert(!load_dictionary(null_dictionary, hashtable));
+}
+END_TEST
+
+START_TEST(test_large_dictionary)
+{
+    // test/validate null dictionary loading and quit
+    hashmap_t hashtable[HASH_SIZE];
+    ck_assert(load_dictionary(LARGEWORDLIST, hashtable));
 }
 END_TEST
 
@@ -112,6 +123,7 @@ START_TEST(test_check_words_normal)
     ck_assert_msg(strcmp(misspelled[0], expected[0]) == 0);
     ck_assert_msg(strcmp(misspelled[1], expected[1]) == 0);
     ck_assert_msg(strcmp(misspelled[2], expected[2]) == 0);
+    fclose(fp);
 }
 END_TEST
 
@@ -129,6 +141,7 @@ check_word_suite(void)
     tcase_add_test(check_word_case, test_dictionary_normal);  
     tcase_add_test(check_word_case, test_null_dictionary); 
     tcase_add_test(check_word_case, test_null_input); 
+    tcase_add_test(check_word_case, test_large_dictionary); 
     
     
     suite_add_tcase(suite, check_word_case);
