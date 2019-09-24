@@ -103,6 +103,16 @@ START_TEST(test_check_word_45characters)
 }
 END_TEST
 
+START_TEST(test_check_word_really_extra_long_word)
+{
+    // Check for word equal to 45characters, doesnt matter if misspelled
+    hashmap_t hashtable[HASH_SIZE];
+    load_dictionary(DICTIONARY, hashtable);
+    const char* really_extra_long_word = "CaliforniaNorthDakotaMontanaArizonaWashingtonCaliforniaNorthDakotaMontanaArizonaWashingtonCaliforniaNorthDakotaMontanaArizonaWashington";
+    ck_assert(!check_word(really_extra_long_word, hashtable));
+}
+END_TEST
+
 START_TEST(test_check_words_normal)
 {
     // Added punctuation before the word to test/validate proper spelling of "THE"
@@ -142,7 +152,8 @@ check_word_suite(void)
     tcase_add_test(check_word_case, test_null_dictionary); 
     tcase_add_test(check_word_case, test_null_input); 
     tcase_add_test(check_word_case, test_large_dictionary); 
-    
+    tcase_add_test(check_word_case, test_check_word_really_extra_long_word); 
+
     
     suite_add_tcase(suite, check_word_case);
 

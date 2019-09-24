@@ -26,12 +26,12 @@
 // check word if it exists in the hash map -- called after load dictionary  
 bool check_word(const char* word, hashmap_t hashtable[])
 {
-    if(word == NULL || hashtable == NULL){return false;}
+    if((word == NULL || hashtable == NULL || strlen(word) >LENGTH)){return 0;}
     else{
     // To search the hashmap, you will want to:
 
     //printf("%s\n",word);
-       
+
     //wordBuffer
     char wordBuffer[LENGTH+1];
 
@@ -117,8 +117,7 @@ bool load_dictionary(const char* dictionary_file, hashmap_t hashtable[])
 // 3 - function to tie the above 2 together (check_words)
 // parameter to check_words will be a file pointer containing lines of words seperated by spaces,punctuation, etc
 // word defined as seperated by spaces && if punctuation in a word, then mispelled
-int check_words(FILE* fp, hashmap_t hashtable[], char* misspelled[]){ 
-    //misspelled[1000];
+int check_words(FILE* fp, hashmap_t hashtable[], char* misspelled[1000]){ 
 
     //Check and close if File not correct
     if(!fp){return 1;}
@@ -137,7 +136,7 @@ int check_words(FILE* fp, hashmap_t hashtable[], char* misspelled[]){
         //printf("Sentence: %s\n",wordBuffer);
         //printf("TOKENBEFORE: %s\n",token);
         token = strtok(NULL," ");
-
+        
         while(token != NULL){
             if(token[strlen(token)-1] =='\n'){token[strlen(token)-1]='\0';}
             token[strlen(token)]='\0';           
@@ -151,7 +150,6 @@ int check_words(FILE* fp, hashmap_t hashtable[], char* misspelled[]){
                     }
                 }
             
-
             // Punctuation strip LEFT of word
             bool beforePUNC = ispunct(token[0]);
             if(beforePUNC){while(beforePUNC){
@@ -159,7 +157,6 @@ int check_words(FILE* fp, hashmap_t hashtable[], char* misspelled[]){
                     beforePUNC = ispunct(token[0]);
                     }
                 }
-            
 
             //printf("TOKENPROCESSED: %s\n",token);
 
