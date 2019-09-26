@@ -1,4 +1,4 @@
-# cs-gy9163
+# cs-gy9163 [![Build Status](https://travis-ci.org/joegumke/cs-gy9163.svg?branch=master)](https://travis-ci.org/joegumke/cs-gy9163)
 
 Welcome to the CS-GY 9163 README Page. This is for Fall2019 NYU course CS-GY 9163 from Professor Gallagher. 
 The intent is to publish a spell checker application based in C.
