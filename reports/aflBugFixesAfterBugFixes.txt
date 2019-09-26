@@ -1,0 +1,289 @@
+joe@JOENUC:/mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments/AppSecAssignment1-master$ sh /home/joe/afl/experimental/crash_triage/triage_crashes.sh /m
+nt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments/AppSecAssignment1-master/afl_outputInputValidation/ /mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-91
+63/Assignments/AppSecAssignment1-master/main test_files/aflWordList.txt wordlist.txt
+crash triage utility for afl-fuzz by <lcamtuf@google.com>
+
+
++++ ID 000000, SIGNAL 11 +++
+
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008000caa in main (argc=<optimized out>, argv=<optimized out>) at main.c:11
+Dump of assembler code from 0x7ffffee5e254 to 0x7ffffee5e264:
+=> 0x00007ffffee5e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007ffffee5e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007ffffee5e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007ffffee5e25c <_IO_new_fclose+12>:      jne    0x7ffffee5e308 <_IO_new_fclose+184>
+   0x00007ffffee5e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x1      1
+rbx            0x0      0
+rcx            0x1      1
+rdx            0x0      0
+rsi            0x7ffffffea150   140737488265552
+rdi            0x0      0
+rbp            0x7ffffffea150   0x7ffffffea150
+rsp            0x7ffffffe81f0   0x7ffffffe81f0
+r8             0x7fffff7d0740   140737479771968
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x1      1
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7ffffee5e254   0x7ffffee5e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+
+        Inferior 1 [process 24855] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+
++++ ID 000001, SIGNAL 11 +++
+
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008000caa in main (argc=<optimized out>, argv=<optimized out>) at main.c:11
+Dump of assembler code from 0x7ffffee5e254 to 0x7ffffee5e264:
+=> 0x00007ffffee5e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007ffffee5e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007ffffee5e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007ffffee5e25c <_IO_new_fclose+12>:      jne    0x7ffffee5e308 <_IO_new_fclose+184>
+   0x00007ffffee5e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x1      1
+rbx            0x0      0
+rcx            0x1      1
+rdx            0x0      0
+rsi            0x7ffffffea150   140737488265552
+rdi            0x0      0
+rbp            0x7ffffffea150   0x7ffffffea150
+rsp            0x7ffffffe81f0   0x7ffffffe81f0
+r8             0x7fffff7d0740   140737479771968
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x1      1
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7ffffee5e254   0x7ffffee5e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+
+        Inferior 1 [process 24869] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+
++++ ID 000002, SIGNAL 11 +++
+
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008000caa in main (argc=<optimized out>, argv=<optimized out>) at main.c:11
+Dump of assembler code from 0x7ffffee5e254 to 0x7ffffee5e264:
+=> 0x00007ffffee5e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007ffffee5e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007ffffee5e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007ffffee5e25c <_IO_new_fclose+12>:      jne    0x7ffffee5e308 <_IO_new_fclose+184>
+   0x00007ffffee5e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x1      1
+rbx            0x0      0
+rcx            0x1      1
+rdx            0x0      0
+rsi            0x7ffffffea150   140737488265552
+rdi            0x0      0
+rbp            0x7ffffffea150   0x7ffffffea150
+rsp            0x7ffffffe81f0   0x7ffffffe81f0
+r8             0x7fffff7d0740   140737479771968
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x1      1
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7ffffee5e254   0x7ffffee5e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+
+        Inferior 1 [process 24883] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+
++++ ID 000003, SIGNAL 11 +++
+
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008000caa in main (argc=<optimized out>, argv=<optimized out>) at main.c:11
+Dump of assembler code from 0x7ffffee5e254 to 0x7ffffee5e264:
+=> 0x00007ffffee5e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007ffffee5e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007ffffee5e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007ffffee5e25c <_IO_new_fclose+12>:      jne    0x7ffffee5e308 <_IO_new_fclose+184>
+   0x00007ffffee5e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x1      1
+rbx            0x0      0
+rcx            0x1      1
+rdx            0x0      0
+rsi            0x7ffffffea150   140737488265552
+rdi            0x0      0
+rbp            0x7ffffffea150   0x7ffffffea150
+rsp            0x7ffffffe81f0   0x7ffffffe81f0
+r8             0x7fffff7d0740   140737479771968
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x1      1
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7ffffee5e254   0x7ffffee5e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+
+        Inferior 1 [process 24897] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+
++++ ID 000004, SIGNAL 11 +++
+
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008000caa in main (argc=<optimized out>, argv=<optimized out>) at main.c:11
+Dump of assembler code from 0x7ffffee5e254 to 0x7ffffee5e264:
+=> 0x00007ffffee5e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007ffffee5e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007ffffee5e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007ffffee5e25c <_IO_new_fclose+12>:      jne    0x7ffffee5e308 <_IO_new_fclose+184>
+   0x00007ffffee5e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x1      1
+rbx            0x0      0
+rcx            0x1      1
+rdx            0x0      0
+rsi            0x7ffffffea150   140737488265552
+rdi            0x0      0
+rbp            0x7ffffffea150   0x7ffffffea150
+rsp            0x7ffffffe81f0   0x7ffffffe81f0
+r8             0x7fffff7d0740   140737479771968
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x1      1
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7ffffee5e254   0x7ffffee5e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+
+        Inferior 1 [process 24911] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+
++++ ID 000005, SIGNAL 11 +++
+
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008000caa in main (argc=<optimized out>, argv=<optimized out>) at main.c:11
+Dump of assembler code from 0x7ffffee5e254 to 0x7ffffee5e264:
+=> 0x00007ffffee5e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007ffffee5e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007ffffee5e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007ffffee5e25c <_IO_new_fclose+12>:      jne    0x7ffffee5e308 <_IO_new_fclose+184>
+   0x00007ffffee5e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x1      1
+rbx            0x0      0
+rcx            0x1      1
+rdx            0x0      0
+rsi            0x7ffffffea150   140737488265552
+rdi            0x0      0
+rbp            0x7ffffffea150   0x7ffffffea150
+rsp            0x7ffffffe81f0   0x7ffffffe81f0
+r8             0x7fffff7d0740   140737479771968
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x1      1
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7ffffee5e254   0x7ffffee5e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+
+        Inferior 1 [process 24925] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+
+joe@JOENUC:/mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments/AppSecAssignment1-master$

@@ -1,0 +1,290 @@
+
+joe@JOENUC:/mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments/AppSecAssignment1-master$ sh /home/joe/afl/experimental/crash_triage/triage_crashes.sh /mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments/AppSecAssignment1-master/afl_output4/ /mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments/AppSecAssignment1-master/main test_files/aflWordList.txt wordlist.txt
+crash triage utility for afl-fuzz by <lcamtuf@google.com>
+Quit anyway? (y or n) [answered Y; input not from terminal]
++++ ID 000000, SIGNAL 11 +++
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48e@JOENiofclose.c: No such file or directory.all2019/CSGY-9163/Assignments/AppSecAssignment1-master$ sh /home/joe/afl/experimental/crash_triage/triage_crashes.sh /m
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48Y-9163/Assignments/AppSecAssignment1-master/afl_output4/ /mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments
+#1  0x0000000008001187 in main ()
+Dump of assembler code from 0x7fffff07e254 to 0x7fffff07e264:
+=> 0x00007fffff07e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007fffff07e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007fffff07e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007fffff07e25c <_IO_new_fclose+12>:      jne    0x7fffff07e308 <_IO_new_fclose+184>
+   0x00007fffff07e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x0      0
+rbx            0x0      0
+rcx            0x0      0
+rdx            0x7ffffffe8220   140737488257568
+rsi            0x7ffffffea160   140737488265568
+rdi            0x0      0
+rbp            0x7ffffffedff0   0x7ffffffedff0
+rsp            0x7ffffffe81e0   0x7ffffffe81e0
+r8             0x7fffff7e1500   140737479841024
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x80008f0        134220016
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7fffff07e254   0x7fffff07e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+
+        Inferior 1 [process 17983] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
+
++++ ID 000001, SIGNAL 11 +++
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008001187 in main ()
+Dump of assembler code from 0x7fffff07e254 to 0x7fffff07e264:
+=> 0x00007fffff07e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007fffff07e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007fffff07e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007fffff07e25c <_IO_new_fclose+12>:      jne    0x7fffff07e308 <_IO_new_fclose+184>
+   0x00007fffff07e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x0      0
+rbx            0x0      0
+rcx            0x0      0
+rdx            0x7ffffffe8220   140737488257568
+rsi            0x7ffffffea160   140737488265568
+rdi            0x0      0
+rbp            0x7ffffffedff0   0x7ffffffedff0
+rsp            0x7ffffffe81e0   0x7ffffffe81e0
+r8             0x7fffff7e1500   140737479841024
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x80008f0        134220016
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7fffff07e254   0x7fffff07e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+        Inferior 1 [process 17997] will be killed.
+Quit anyway? (y or n) [answered Y; input not from terminal]
++++ ID 000002, SIGNAL 11 +++CloudStation/NYU/Fall2019/CSGY-9163/Assignments/AppSecAssignment1-master$ sh /home/joe/afl/experimental/crash_triage/triage_crashes.sh /m
+nt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments/AppSecAssignment1-master/afl_output4/ /mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/Assignments
+/AppSecAssignment1-master/main
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008001187 in main ()
+Dump of assembler code from 0x7fffff07e254 to 0x7fffff07e264:
+=> 0x00007fffff07e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007fffff07e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007fffff07e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007fffff07e25c <_IO_new_fclose+12>:      jne    0x7fffff07e308 <_IO_new_fclose+184>
+   0x00007fffff07e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x0      0
+rbx            0x0      0
+rcx            0x0      0
+rdx            0x7ffffffe8220   140737488257568
+rsi            0x7ffffffea160   140737488265568
+rdi            0x0      0
+rbp            0x7ffffffedff0   0x7ffffffedff0
+rsp            0x7ffffffe81e0   0x7ffffffe81e0
+r8             0x7fffff7e1500   140737479841024
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x80008f0        134220016
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7fffff07e254   0x7fffff07e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+        Inferior 1 [process 18011] will be killed.
+Quit anyway? (y or n) [answered Y; input not from terminal]
++++ ID 000003, SIGNAL 11 +++
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008001187 in main ()
+Dump of assembler code from 0x7fffff07e254 to 0x7fffff07e264:
+=> 0x00007fffff07e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007fffff07e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007fffff07e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007fffff07e25c <_IO_new_fclose+12>:      jne    0x7fffff07e308 <_IO_new_fclose+184>
+   0x00007fffff07e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x0      0
+rbx            0x0      0
+rcx            0x0      0
+rdx            0x7ffffffe8220   140737488257568
+rsi            0x7ffffffea160   140737488265568
+rdi            0x0      0
+rbp            0x7ffffffedff0   0x7ffffffedff0
+rsp            0x7ffffffe81e0   0x7ffffffe81e0
+r8             0x7fffff7e1500   140737479841024
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x80008f0        134220016
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7fffff07e254   0x7fffff07e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+        Inferior 1 [process 18025] will be killed.
+Quit anyway? (y or n) [answered Y; input not from terminal]
++++ ID 000004, SIGNAL 11 +++
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008001187 in main ()
+Dump of assembler code from 0x7fffff07e254 to 0x7fffff07e264:
+=> 0x00007fffff07e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007fffff07e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007fffff07e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007fffff07e25c <_IO_new_fclose+12>:      jne    0x7fffff07e308 <_IO_new_fclose+184>
+   0x00007fffff07e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x0      0
+rbx            0x0      0
+rcx            0x0      0
+rdx            0x7ffffffe8220   140737488257568
+rsi            0x7ffffffea160   140737488265568
+rdi            0x0      0
+rbp            0x7ffffffedff0   0x7ffffffedff0
+rsp            0x7ffffffe81e0   0x7ffffffe81e0
+r8             0x7fffff7e1500   140737479841024
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x80008f0        134220016
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7fffff07e254   0x7fffff07e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+        Inferior 1 [process 18039] will be killed.
+Quit anyway? (y or n) [answered Y; input not from terminal]
++++ ID 000005, SIGNAL 11 +++
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008001187 in main ()
+Dump of assembler code from 0x7fffff07e254 to 0x7fffff07e264:
+=> 0x00007fffff07e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007fffff07e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007fffff07e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007fffff07e25c <_IO_new_fclose+12>:      jne    0x7fffff07e308 <_IO_new_fclose+184>
+   0x00007fffff07e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x0      0
+rbx            0x0      0
+rcx            0x0      0
+rdx            0x7ffffffe8220   140737488257568
+rsi            0x7ffffffea160   140737488265568
+rdi            0x0      0
+rbp            0x7ffffffedff0   0x7ffffffedff0
+rsp            0x7ffffffe81e0   0x7ffffffe81e0
+r8             0x7fffff7e1500   140737479841024
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x80008f0        134220016
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7fffff07e254   0x7fffff07e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+        Inferior 1 [process 18053] will be killed.
+Quit anyway? (y or n) [answered Y; input not from terminal]
++++ ID 000006, SIGNAL 11 +++
+Program received signal SIGSEGV, Segmentation fault.
+_IO_new_fclose (fp=0x0) at iofclose.c:48
+48      iofclose.c: No such file or directory.
+#0  _IO_new_fclose (fp=0x0) at iofclose.c:48
+#1  0x0000000008001187 in main ()
+Dump of assembler code from 0x7fffff07e254 to 0x7fffff07e264:
+=> 0x00007fffff07e254 <_IO_new_fclose+4>:       mov    (%rdi),%eax
+   0x00007fffff07e256 <_IO_new_fclose+6>:       mov    %rdi,%rbx
+   0x00007fffff07e259 <_IO_new_fclose+9>:       test   $0x20,%ah
+   0x00007fffff07e25c <_IO_new_fclose+12>:      jne    0x7fffff07e308 <_IO_new_fclose+184>
+   0x00007fffff07e262 <_IO_new_fclose+18>:      mov    %eax,%edx
+End of assembler dump.
+rax            0x0      0
+rbx            0x0      0
+rcx            0x0      0
+rdx            0x7ffffffe8220   140737488257568
+rsi            0x7ffffffea160   140737488265568
+rdi            0x0      0
+rbp            0x7ffffffedff0   0x7ffffffedff0
+rsp            0x7ffffffe81e0   0x7ffffffe81e0
+r8             0x7fffff7e1500   140737479841024
+r9             0x0      0
+r10            0x0      0
+r11            0x0      0
+r12            0x80008f0        134220016
+r13            0x7ffffffee0d0   140737488281808
+r14            0x0      0
+r15            0x0      0
+rip            0x7fffff07e254   0x7fffff07e254 <_IO_new_fclose+4>
+eflags         0x10206  [ PF IF RF ]
+cs             0x33     51
+ss             0x2b     43
+ds             0x0      0
+es             0x0      0
+fs             0x0      0
+gs             0x0      0
+A debugging session is active.
+        Inferior 1 [process 18067] will be killed.
+Quit anyway? (y or n) [answered Y; input not from terminal]
+joe@JOENUC:/mnt/c/Users/joe/CloudStation/NYU/Fall2019/CSGY-9163/As
